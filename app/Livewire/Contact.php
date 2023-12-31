@@ -10,6 +10,7 @@ class Contact extends Component
     #[Title('Contact')]
     public function render()
     {
+        sleep(3);
         return view('livewire.contact');
     }
 }
