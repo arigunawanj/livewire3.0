@@ -26,6 +26,8 @@ class PostForm extends Form
 
         $user->post()->create($validate);
 
+        flash('Berhasil Menambahkan Data Post', 'success');
+
         $this->reset();
     }
 
@@ -33,7 +35,7 @@ class PostForm extends Form
     {
         //
     }
-    
+
     public function delete(): void
     {
         //
