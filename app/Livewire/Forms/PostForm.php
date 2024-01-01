@@ -3,8 +3,8 @@
 namespace App\Livewire\Forms;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
-use Livewire\Attributes\Validate;
 use Livewire\Form;
 
 class PostForm extends Form
@@ -17,14 +17,14 @@ class PostForm extends Form
 
     public function store(): void
     {
-        $user = User::find(1);
+
         // Jika ada validasi
         $validate = $this->validate();
 
         // Jika tidak ada validasi
         // $validate = $this->all();
 
-        $user->post()->create($validate);
+        Auth::user()->post()->create($validate);
 
         flash('Berhasil Menambahkan Data Post', 'success');
 
@@ -40,6 +40,4 @@ class PostForm extends Form
     {
         //
     }
-
-
 }
