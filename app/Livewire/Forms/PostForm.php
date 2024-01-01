@@ -9,13 +9,10 @@ use Livewire\Form;
 
 class PostForm extends Form
 {
-    #[Rule(['required', 'string', 'min:3'])]
-    public string $title = '';
-
     #[Rule(['required'])]
     public string $body = '';
 
-    public function store(): void
+    public function store()
     {
 
         // Jika ada validasi
@@ -24,11 +21,13 @@ class PostForm extends Form
         // Jika tidak ada validasi
         // $validate = $this->all();
 
-        Auth::user()->post()->create($validate);
+        $post = Auth::user()->post()->create($validate);
 
         flash('Berhasil Menambahkan Data Post', 'success');
 
         $this->reset();
+
+        return $post;
     }
 
     public function update(): void
