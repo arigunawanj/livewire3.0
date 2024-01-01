@@ -7,6 +7,7 @@ use App\Livewire\Home;
 use App\Livewire\Login;
 use App\Livewire\Posts\Index;
 use App\Livewire\Timeline;
+use App\Livewire\Users\Index as UsersIndex;
 use App\Livewire\Users\Show;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/timeline', Timeline::class)->name('timeline');
 
     Route::get('users/{user}', Show::class)->name('users.show');
+    Route::get('users', UsersIndex::class)->name('users.index');
 
 });
 
